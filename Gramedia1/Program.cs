@@ -47,6 +47,7 @@ namespace insert_and_get_data
                                         Console.WriteLine("2. Tambah data");
                                         Console.WriteLine("3. Keluar");
                                         Console.WriteLine("4. Hapus data");
+                                        Console.WriteLine("5. Search Data");
                                         Console.WriteLine("\nEnter your choice (1-4): ");
                                         char ch = Convert.ToChar(Console.ReadLine());
                                         switch (ch)
@@ -73,6 +74,7 @@ namespace insert_and_get_data
                                                     string Buku = Console.ReadLine();
                                                     Console.WriteLine("Masukkan No Rak :");
                                                     string Rak = Console.ReadLine();
+                                                    
                                                     try
                                                     {
                                                         pr.insert(Pembeli, Pembelian, Kasir, Buku, Rak, conn);
@@ -89,22 +91,46 @@ namespace insert_and_get_data
                                             case '4':
                                                 {
                                                     Console.Clear();
-                                                    Console.WriteLine("Hapus Data Buku");
-                                                    Console.WriteLine("Masukan Id_Buku: ");
-                                                    string Buku = Console.ReadLine();
-                                                    Console.WriteLine("Apakah anda yakin ingin menghapus Data Buku ini?(y)");
+                                                    Console.WriteLine("Hapus Data Pembeli");
+                                                    Console.WriteLine("Masukan Id_Pembeli: ");
+                                                    string Pembeli = Console.ReadLine();
+                                                    Console.WriteLine("Apakah anda yakin ingin menghapus Data Pembeli ini?(y)");
                                                     jwb = Console.ReadLine();
 
                                                     if (jwb.Equals("y"))
                                                     {
                                                         try
                                                         {
-                                                            pr.delete(Buku, conn);
+                                                            pr.delete(Pembeli, conn);
                                                         }
                                                         catch
                                                         {
                                                             Console.WriteLine("Anda tidak memiliki " +
                                                                 "akses untuk menghapus data");
+                                                        }
+                                                    }
+                                                    else break;
+                                                }
+                                                break;
+                                            case '5':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("Cari Data Pembeli");
+                                                    Console.WriteLine("Masukan Id_Pembeli: ");
+                                                    string Pembeli = Console.ReadLine();
+                                                    Console.WriteLine("Apakah anda yakin ingin Mencari Data Pembeli ini?(y)");
+                                                    jwb = Console.ReadLine();
+
+                                                    if (jwb.Equals("y"))
+                                                    {
+                                                        try
+                                                        {
+                                                            pr.search(Pembeli, conn);
+                                                        }
+                                                        catch
+                                                        {
+                                                            Console.WriteLine("Anda tidak memiliki " +
+                                                                "akses untuk mencari data");
                                                         }
                                                     }
                                                     else break;
@@ -192,7 +218,7 @@ namespace insert_and_get_data
 
             cmd.Parameters.Add(new SqlParameter("Buku", Buku));
             cmd.ExecuteNonQuery();
-            Console.WriteLine("Data Berhasil Dihapus");
+            Console.WriteLine("Data Berhasil Ditemukan");
         }
 
     }
