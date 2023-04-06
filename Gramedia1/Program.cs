@@ -47,7 +47,7 @@ namespace insert_and_get_data
                                         Console.WriteLine("2. Tambah data");
                                         Console.WriteLine("3. Keluar");
                                         Console.WriteLine("4. Hapus data");
-                                        Console.WriteLine("\nEnter your choice (1-3): ");
+                                        Console.WriteLine("\nEnter your choice (1-4): ");
                                         char ch = Convert.ToChar(Console.ReadLine());
                                         switch (ch)
                                         {
@@ -67,11 +67,11 @@ namespace insert_and_get_data
                                                     string Pembeli = Console.ReadLine();
                                                     Console.WriteLine("Masukkan Tanggal Pembelian :");
                                                     string Pembelian = Console.ReadLine();
-                                                    Console.WriteLine("Masukkan Data Kas :");
+                                                    Console.WriteLine("Masukkan ID Kasir :");
                                                     string Kasir = Console.ReadLine();
-                                                    Console.WriteLine("Masukkan jenis kelamin (L/P) :");
+                                                    Console.WriteLine("Masukkan ID Buku :");
                                                     string Buku = Console.ReadLine();
-                                                    Console.WriteLine("Masukkan No Telepon :");
+                                                    Console.WriteLine("Masukkan No Rak :");
                                                     string Rak = Console.ReadLine();
                                                     try
                                                     {
