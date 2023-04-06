@@ -48,6 +48,7 @@ namespace insert_and_get_data
                                         Console.WriteLine("3. Keluar");
                                         Console.WriteLine("4. Hapus data");
                                         Console.WriteLine("5. Search Data");
+                                        Console.WriteLine("6. Ubah Data");
                                         Console.WriteLine("\nEnter your choice (1-4): ");
                                         char ch = Convert.ToChar(Console.ReadLine());
                                         switch (ch)
@@ -210,6 +211,17 @@ namespace insert_and_get_data
             Console.WriteLine("Data Berhasil Dihapus");
         }
         public void search(string Buku, SqlConnection con)
+        {
+            string str = "";
+            str = "select Buku from Buku where Buku = @Buku";
+            SqlCommand cmd = new SqlCommand(str, con);
+            cmd.CommandType = CommandType.Text;
+
+            cmd.Parameters.Add(new SqlParameter("Buku", Buku));
+            cmd.ExecuteNonQuery();
+            Console.WriteLine("Data Berhasil Ditemukan");
+        }
+        public void change(string Buku, SqlConnection con)
         {
             string str = "";
             str = "select Buku from Buku where Buku = @Buku";
